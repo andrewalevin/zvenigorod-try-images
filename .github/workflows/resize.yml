@@ -1,0 +1,47 @@
+name: 🪲 Resize
+
+on:
+  push:
+    branches:
+      - main
+  release:
+    types: [published]
+    
+permissions:
+  contents: write
+  packages: write
+  
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: 🍊 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 🥝 Set up Python environment
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.x'
+  
+      - name: 🐍 PyPI Upgrade
+        run: python -m pip install --upgrade pip
+  
+      - name: 🎶 Install impressify
+        run: pip install impressify
+  
+      - name: 🪲 Resize
+        run: |
+          impressify imgs 220 
+
+      
+
+
+          
+
+
+
+
+
+  
