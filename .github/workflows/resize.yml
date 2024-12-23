@@ -35,6 +35,11 @@ jobs:
         run: |
           impressify imgs 220 
 
+      - name: 🍒 Git Auto Commit
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Apply automatic changes
+
       
 
 
